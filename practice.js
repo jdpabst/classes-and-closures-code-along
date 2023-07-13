@@ -16,8 +16,14 @@
 */
 
 function count(num){
-    // Code here
+    function newClosure(){
+      return ++num;
+    }
+    return newClosure;
 };
+
+// let counts = count(7);
+// console.log(counts())
 
 
 // Do not edit the code below.
@@ -39,15 +45,18 @@ var newClosure = count(5);
   
 */
  
-// Code here
+function greeting(name){
+  function greet(str){
+    return str + ' ' + name;
+  }
+  return greet;
+}
     
-    
-
 
 // After you have created the greeting function above, uncomment the code below, but do not edit it
 
-// const greetingClosure = greeting('Henry');
-// let greet = greetingClosure('Hello')
+const greetingClosure = greeting('Henry');
+let greet = greetingClosure('Hello')
     
 
 
@@ -63,7 +72,24 @@ var newClosure = count(5);
 
 */
 
-// Code here
+function calculatorCreator(){
+  let num = 0;
+
+  return{
+    add: function(num2){
+      return num += num2
+    },
+    subtract: function(num2){
+      return num -= num2
+    },
+    multiply: function(num2){
+      return num *= num2
+    },
+    divide: function(num2){
+      return num /= num2;
+    }
+  }
+}
 
 
 
@@ -74,9 +100,15 @@ var newClosure = count(5);
   
 */
 
-// Code here
-
-
+class Puppy {
+  constructor(happiness, energy, behavior){
+    this.happiness = happiness;
+    this.energy = energy;
+    this.behavior = behavior;
+  }
+}
+// let germanShepherd = new Puppy(10, 3, 10)
+// console.log(germanShepherd)
 
 ////////// PROBLEM 5 //////////
 /* 
@@ -87,7 +119,25 @@ var newClosure = count(5);
 
 */
 
-// Code here
+class Car {
+  constructor(manufacturer, year){
+    this.manufacturer = manufacturer;
+    this.year = year;
+  }
+
+  displayManufacturer(){
+    return this.manufacturer;
+  }
+  displayYear(){
+    return this.year;
+  }
+
+}
+
+// let tesla = new Car('tesla', 2023);
+
+// console.log(tesla.displayManufacturer());
+// console.log(tesla.displayYear());
 
 
 
@@ -102,4 +152,19 @@ var newClosure = count(5);
 
 */
 
-// Code here
+class Panda {
+  constructor(happiness, energy, behavior){
+    this.happiness = happiness;
+    this.energy = energy;
+    this.behavior = behavior;
+  }
+
+  getsTreat(){
+    return this.happiness += 20;
+  }
+  takesNap(){
+    this.energy -= 45
+    this.behavior += 15
+    return this.energy, this.behavior
+  }
+}
